@@ -13,7 +13,7 @@ module.exports = function (RED) {
         node.status({});
 
         try {
-            const consumerClient = new EventHubConsumerClient(consumerGroup, connectionString, eventHubName);
+            const consumerClient = new EventHubConsumerClient(config.consumergroup, config.connectionstring, config.eventhubname);
 
             const subscription = consumerClient.subscribe(
                 {
@@ -40,7 +40,7 @@ module.exports = function (RED) {
                     node.log('closing ...' + context.CloseReason);
                   }
                 }, 
-                { startPosition: earliestEventPosition }
+                { startPosition: latestEventPosition }
               );
         }
         catch (err) {

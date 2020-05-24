@@ -1,7 +1,7 @@
 {
   "name": "node-red-contrib-azure-eventhub-receive",
   "description": "A simple node that receives messages from an Azure Event Hub. Based on the work of Jan Tielens and updated to use the latest Azure Java Script SDK.",
-  "version": "0.0.8",
+  "version": "0.0.14",
   "author": {
     "name": "Sean Gordon"
   },
