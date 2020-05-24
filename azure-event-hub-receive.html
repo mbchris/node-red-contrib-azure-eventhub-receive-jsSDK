@@ -5,7 +5,8 @@
         defaults: {
             name: { value: "" },
             connectionstring: { value: "" },
-            consumergroup: { value: "$default" }
+            eventhubname:  { value: "" },
+            consumergroup: { value: "$Default" }
         },
         inputs: 0,
         outputs: 1,
@@ -23,7 +24,11 @@
     </div>
     <div class="form-row">
         <label for="node-input-connectionstring"><i class="icon-tag"></i> Event Hub Connection String</label>
-        <input type="text" id="node-input-connectionstring" placeholder="E.g. Endpoint=sb://XXX.servicebus.windows.net/;SharedAccessKeyName=XXX;SharedAccessKey=XXX;EntityPath=XXX">
+        <input type="text" id="node-input-connectionstring" placeholder="Connection String without EntityPath E.g. Endpoint=sb://XXX.servicebus.windows.net/;SharedAccessKeyName=XXX;SharedAccessKey=XXX">
+    </div>
+    <div class="form-row">
+        <label for="node-input-eventhubname"><i class="icon-tag"></i> Event Hub Name</label>
+        <input type="text" id="node-input-eventhubname" placeholder="Name of the Event Hub">
     </div>
     <div class="form-row">
         <label for="node-input-consumergroup"><i class="icon-tag"></i> Event Hub Consumer Group</label>
@@ -49,7 +54,7 @@
     </ol>
     
     <h3>Details</h3>
-    In the node's properties, the connection string of the Event Hub to which
+    In the node's properties, the connection string and name of the Event Hub to which
     you would like to connect, can be specified. Additionally the Consumer Group
     can be set in the properties as well. Both values can be retreived from 
     the Azure Portal.
@@ -57,7 +62,7 @@
     <h3>References</h3>
     <ul>
         <li><a href="https://azure.microsoft.com/en-us/services/event-hubs/">Azure Event Hubs</a></li>
-        <li><a https://github.com/azure/azure-event-hubs-node>Azure Event Hubs NodeJS client (in preview)</a> - the client library used by this node</li>
+        <li><a https://www.npmjs.com/package/@azure/event-hubs/v/5.2.0>Azure Event Hubs NodeJS client.</a> - the client library used by this node</li>
     </ul>
 </script>
 </script>
