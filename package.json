@@ -11,7 +11,7 @@
     }
   },
   "dependencies": {
-    "@azure/event-hubs": "5.2.0"
+    "@azure/event-hubs": "^5.2.0"
   },
   "keywords": [
     "node-red",
