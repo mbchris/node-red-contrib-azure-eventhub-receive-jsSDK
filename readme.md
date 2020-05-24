@@ -3,7 +3,7 @@
 
 **node-red-contrib-azure-event-hub-receive** is a <a href="http://nodered.org" target="_new">Node-RED</a> node that allows you to receive messages from an <a href="https://azure.microsoft.com/en-us/services/event-hubs/">Azure Event Hub</a>.
 
-** This node has been updated to use the latest Azure Java Script SDK**
+**This node has been updated to use the latest Azure Java Script SDK**
 
 ![](images/basicflow.png)
 
