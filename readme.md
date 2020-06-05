@@ -10,7 +10,7 @@
 ## Installation
 
 ```
-npm install -g node-red-contrib-azure-eventhub-receive
+npm install -g node-red-contrib-azure-eventhub-receive-jsSDK
 ```
 
 # Usage
