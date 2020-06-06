@@ -21,13 +21,7 @@ module.exports = function (RED) {
                   processEvents: async (events, context) => {
                     // message received from Event Hub partition
                     for (const event of events) {
-                      console.log(                         `Received event from partition: '${context.partitionId}' and consumer group: '${context.consumerGroup}'`);
-                      console.log("{");
-                      for (property in event.body)
-                      {
-                          console.log( `    '${property}' : '${event.body[property]}'` );
-                      }
-                      console.log("}");
+                        console.log(`Received event from partition: '${context.partitionId}' and consumer group: '${context.consumerGroup}'`);
                         var msg = { payload: event.body }
                         node.send(msg);
                     }
