@@ -41,6 +41,14 @@ module.exports = function (RED) {
             this.error(err.message);
             node.status({ fill: "red", shape: "ring", text: "can't connect, " + err.message });
         }
+
+        this.on('close', function (done) {
+          node.log('closing ...');
+          subscription.close();
+          consumerClient.close();
+          node.log('closing done.');
+          });
+
     }
 
     RED.nodes.registerType("azure-event-hub-receive", AzureEventHubReceiveNode);
