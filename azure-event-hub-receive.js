@@ -1,5 +1,11 @@
 const { EventHubConsumerClient, latestEventPosition } = require("@azure/event-hubs");
 
+    // add support for proxy and websocket connection
+const WebSocket = require("ws");
+const url = require("url");
+const httpsProxyAgent = require("https-proxy-agent");
+
+
 module.exports = function (RED) {
     function AzureEventHubReceiveNode(config) {
         RED.nodes.createNode(this, config);
@@ -8,12 +14,26 @@ module.exports = function (RED) {
         node.connectionstring = config.connectionstring;
         node.eventhubname = config.eventhubname;
         node.consumergroup = config.consumergroup;
+	node.proxyhost = config.proxyhost;
+	node.proxyuser = config.proxyuser;
+	node.proxypass = config.proxypass;
 
         // clear status, might be left over after updating settings
         node.status({});
 
         try {
-            const consumerClient = new EventHubConsumerClient(config.consumergroup, config.connectionstring, config.eventhubname);
+
+            const urlParts = url.parse("http://" + node.proxyhost);
+            urlParts.auth = node.proxyuser + ":" + node.proxypass; // Skip this if proxy server does not need authentication.
+            const proxyAgent = new httpsProxyAgent(urlParts);
+		
+	    const consumerClient = new EventHubConsumerClient(config.consumergroup, config.connectionstring, config.eventhubname, {
+               webSocketOptions: {
+                    webSocket: WebSocket,
+                    webSocketConstructorOptions: { agent: proxyAgent }
+                }
+            });
+
 
             const subscription = consumerClient.subscribe(
                 {
