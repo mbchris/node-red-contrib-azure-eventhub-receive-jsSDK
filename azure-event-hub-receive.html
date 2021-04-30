@@ -7,10 +7,6 @@
             connectionstring: { value: "" },
             eventhubname:  { value: "" },
             consumergroup: { value: "$Default" }
-            proxyhost: { type: "text" },
-            proxyuser: { type: "text" },
-            proxypass: { type: "password" }
-		
         },
         inputs: 0,
         outputs: 1,
@@ -38,21 +34,6 @@
         <label for="node-input-consumergroup"><i class="icon-tag"></i> Event Hub Consumer Group</label>
         <input type="text" id="node-input-consumergroup" placeholder="E.g. $default">
     </div>
-    <div class="form-row">
-        <label for="node-input-proxyhost"><i class="icon-tag"></i> proxy hostname:port (e.g. localhost:3128)</label>
-        <input type="text" id="node-input-proxyhost" placeholder="Proxy host"> <br/>
-    </div>
-    <div class="form-row">
-        <label for="node-input-proxyuser"><i class="icon-tag"></i> proxy username)</label>
-        <input type="text" id="node-input-proxyuser" placeholder="Proxy user"> <br/>
-    </div>
-    <div class="form-row">
-        <label for="node-input-proxypass"><i class="icon-tag"></i> proxy password</label>
-        <input type="password" id="node-input-proxypass" placeholder="Proxy password"> <br/>
-    </div>
-
-
-    
 </script>
 
 <script type="text/x-red" data-help-name="azure-event-hub-receive-proxy">
